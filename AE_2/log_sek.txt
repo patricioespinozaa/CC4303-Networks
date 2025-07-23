@@ -1,0 +1,21 @@
+
+
+>>> to server
+GET / HTTP/1.1
+Host: localhost:18232
+User-Agent: curl/7.88.1
+Accept: */*
+
+
+
+<<< from server
+HTTP/1.1 200 OK
+Connection: Keep-Alive
+Keep-Alive: timeout=5, max=100
+content-type: text/html
+last-modified: Sat, 10 Oct 2020 19:37:25 GMT
+accept-ranges: bytes
+content-length: 163
+date: Mon, 14 Apr 2025 21:04:26 GMT
+
+<html><head><META HTTP-EQUIV="Cache-control" CONTENT="no-cache"><META HTTP-EQUIV="refresh" CONTENT="0;URL=/cgi-sys/defaultwebpage.cgi"></head><body></body></html>

@@ -1,0 +1,88 @@
+Actividad evaluada 4
+Nombre: Patricio Espinoza A.
+Sección: 1
+
+BDP del enlace = 10
+Mediciones simuladas por 2 minutos aproximadante (cuando se aprieta stop)
+
+# Stop and Wait window = 1
+
+Total packets sent	12
+Total OK	        10
+Useful BW (packets/s)	0.0807
+Total BW (packets/s)	0.0969
+Current BW (packets/s)	0.0904
+Loss Prob	        0.2
+
+# Go back N window = 11
+
+Total packets sent	157
+Total OK		48
+Useful BW (packets/s)	0.3158
+Total BW (packets/s)	1.033
+Current BW (packets/s)	0.7162
+Loss Prob		0.2
+
+# Selective Repeat window = 11
+
+Total packets sent	113
+Total OK		60
+Useful BW (packets/s)	0.3902
+Total BW (packets/s)	0.7349
+Current BW (packets/s)	0.4803
+Loss Prob		0.2
+
+Preguntas:
+(1) Normalmente la ventana óptima es justo el BDP del enlace. Ahora que hay pérdidas: cuál es el tamaño óptimo para Go-Back-N? Para Selective-Repeat? 
+
+Actualmente el BDP del enlace es de 10 paquetes, es decir, se pueden mantener hasta 10 paquetes simultáneamente. Para Go-Back-N si un paquete se pierde, los siguientes también se deberán retransmitir, por tanto el tamaño óptimo seria menor a 10. Mientras que para Selective-Repeat se retransmite solo el paquete perdido y por tanto esta bien usar un tamaño de 10.
+
+Al probar en el simulador durante dos minutos, los tamaños óptimos encontrados son:
+- Go-Back-N: Con una window de 15 con Useful BW = 0.3726
+- Selective-Repeat: El mejor resultado se obtuvo con una window de 40, teniendo 0.5249 en USeful BW
+
+(2) Pruebe usar una ventana mucho más grande que el BDP. Sirve de algo en algún protocolo?
+
+# Go back N window = 40
+
+Total packets sent	649
+Total OK		78
+Useful BW (packets/s)	0.3173 
+Total BW (packets/s)	2.6404
+Current BW (packets/s)	2.113
+Loss Prob		0.2
+
+Para el protocolo Go-Back-N la cantidad de paquetes aumento casi 6 veces mientras que el total de paquetes con ACK recibido (OK) apenas aumentó, es decir, prácticamente aumentaron los paquetes que se debían retransmitir. Incluso el ancho de banda (Useful BW) disminuyó al incrementar la ventana. La única ventaja es que los últimos 10 paquetes presentaron un ancho de banda mayor en el caso de una ventana más grande (Current BW).
+
+# Selective Repeat window = 40
+
+Total packets sent	194
+Total OK		89
+Useful BW (packets/s)	0.5695 
+Total BW (packets/s)	1.2415
+Current BW (packets/s)	0.6082
+Loss Prob		0.2
+
+Para el protocolo Selective Repeat se observo un aumento en el ancho de banda, y que la cantidad aumentada de paquetes enviados fue prácticamente igual a la de paquetes recibidos con ACK. Asimismo, el current BW aumentó para los últimos 10 paquetes. Por tanto el incrementó de la ventana favoreció a este protocolo.
+
+(3) Los ACKs acumulativos (CACKs) siguen siendo "eficientes"?
+
+# Selective Repeat+ACK window = 11
+
+Total packets sent	82
+Total OK		41
+Useful BW (packets/s)	0.2866
+Total BW (packets/s)	0.5732
+Current BW (packets/s)	0.5011
+Loss Prob		0.2
+
+# Selective Repeat+ACK window = 40
+
+Total packets sent	157
+Total OK		75
+Useful BW (packets/s)	0.5249 
+Total BW (packets/s)	1.0989
+Current BW (packets/s)	0.7200
+Loss Prob		0.2
+
+Los ACKs acumulativos resultan ser más eficientes que el protocolo Go-Back-N, pero es notable que son peor en comparación al Selective Repeat tanto para Windows de 11 como de 40 al comparar los Useful BW, Total BW y Current BW de las tablas con los resultados.

@@ -1,0 +1,27 @@
+
+
+>>> to server
+GET / HTTP/1.1
+Host: localhost:18233
+User-Agent: curl/7.88.1
+Accept: */*
+
+
+
+<<< from server
+HTTP/1.1 302 Found
+Date: Mon, 14 Apr 2025 21:06:54 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Location: https://www.serviciopais.cl
+Content-Length: 289
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>302 Found</title>
+</head><body>
+<h1>Found</h1>
+<p>The document has moved <a href="https://www.serviciopais.cl">here</a>.</p>
+<hr>
+<address>Apache/2.4.41 (Ubuntu) Server at localhost Port 18233</address>
+</body></html>

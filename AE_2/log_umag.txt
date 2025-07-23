@@ -1,0 +1,20 @@
+
+
+>>> to server
+GET / HTTP/1.1
+Host: localhost:18230
+User-Agent: curl/7.88.1
+Accept: */*
+
+
+
+<<< from server
+HTTP/1.1 301 Moved Permanently
+Date: Mon, 14 Apr 2025 21:02:26 GMT
+Server: Apache/2.4.61 (Debian)
+X-LiteSpeed-Tag: fc6_HTTP.200,fc6_HTTP.301
+X-Redirect-By: WordPress
+Location: http://localhost/
+Content-Length: 0
+Content-Type: text/html; charset=UTF-8
+
